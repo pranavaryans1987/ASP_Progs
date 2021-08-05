@@ -18,5 +18,15 @@ namespace WebApplication1
         {
             Response.Redirect("register.aspx");
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+            //Login Code Goes Here
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            //Reset Code Goes Here
+        }
     }
 }

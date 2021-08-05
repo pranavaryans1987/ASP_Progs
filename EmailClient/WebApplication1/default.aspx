@@ -19,8 +19,8 @@
                     <td><asp:TextBox ID="txtPwd" runat="server"></asp:TextBox></td>
                 </tr>
                 <tr>
-                    <td><asp:Button ID="btnSave" runat="server" Text="Login" /></td>
-                    <td><asp:Button ID="btnClear" runat="server" Text="Reset" /></td>
+                    <td><asp:Button ID="btnSave" runat="server" Text="Login" OnClick="btnSave_Click" /></td>
+                    <td><asp:Button ID="btnClear" runat="server" Text="Reset" OnClick="btnClear_Click" /></td>
                 </tr>
                 <tr>
                     <td colspan="2"><asp:LinkButton ID="btnRegister" runat="server" OnClick="btnRegister_Click">New User? Register Here</asp:LinkButton></td>
