@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace WebApplication1
 {
@@ -21,7 +23,19 @@ namespace WebApplication1
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            //Login Code Goes H
+            string sql = "select * from login where username='" + txtunm.Text + "' and password='" + txtPwd.Text + "'";
+            SqlDataAdapter da = new SqlDataAdapter(sql, ITClass.cn);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            if(dt.Rows.Count==1)
+            {
+                Session["user"] = txtunm.Text;
+                Response.Redirect("Home.aspx");
+            }
+            else
+            {
+                Response.Write("Invalid Username or Password");
+            }
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
