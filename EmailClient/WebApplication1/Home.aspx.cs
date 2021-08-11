@@ -14,11 +14,29 @@ namespace WebApplication1
             if(Session["user"]!=null)
             {
                 lblUnm.Text = "Welcome : " + Session["user"].ToString();
+                compose.Visible = false;
+                inbox.Visible = false;
+                sent.Visible = false;
             }
             else
             {
                 Response.Redirect("default.aspx");
             }
+        }
+
+        protected void lnkCompose_Click(object sender, EventArgs e)
+        {
+            compose.Visible = true;
+        }
+
+        protected void lnkInbox_Click(object sender, EventArgs e)
+        {
+            inbox.Visible = true;
+        }
+
+        protected void lnkSent_Click(object sender, EventArgs e)
+        {
+            sent.Visible = true;
         }
     }
 }
