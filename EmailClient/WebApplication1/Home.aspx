@@ -4,6 +4,20 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet"/>
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"/>
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet"/>
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet"/>
+
     <title>E-Mail</title>
 <style>
     #header
@@ -31,7 +45,7 @@
         background-color:burlywood;
         height:10%;
     }
-    .links
+   #lnkCompose lnkInbox lnkSent
     {
         display:block;
         text-decoration:none;
@@ -44,50 +58,50 @@
 </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" class="form-control" runat="server">
         <div id="header">
             <center><h1>E-Mail Client Demo</h1></center>
-            <asp:Label ID="lblUnm" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="lblUnm" class="form-control btn-secondary" runat="server" Text="Label"></asp:Label>
         </div>
         <div id="main">
             <div id="menu">
-                <asp:LinkButton runat="server" class="links" ID="lnkCompose" OnClick="lnkCompose_Click">Compose</asp:LinkButton>
-                <asp:LinkButton runat="server" class="links" ID="lnkInbox" OnClick="lnkInbox_Click">Inbox</asp:LinkButton>
-                <asp:LinkButton runat="server" class="links" ID="lnkSent" OnClick="lnkSent_Click">Sent</asp:LinkButton>
+                <asp:LinkButton runat="server" class="form-control btn btn-primary" ID="lnkCompose" OnClick="lnkCompose_Click">Compose</asp:LinkButton>
+                <asp:LinkButton runat="server" class="form-control btn btn-primary" ID="lnkInbox" OnClick="lnkInbox_Click">Inbox</asp:LinkButton>
+                <asp:LinkButton runat="server" class="form-control btn btn-primary" ID="lnkSent" OnClick="lnkSent_Click">Sent</asp:LinkButton>
             </div>
             <div id="content" class="content">
                 <div id="compose" runat="server">
-                   <asp:Table BorderStyle="Solid" runat="server" BorderWidth="2px" Width="100%" Font-Bold="true">
-                       <asp:TableRow>
-                           <asp:TableCell>
-                               Enter E-Mail Address
-                           </asp:TableCell>
-                           <asp:TableCell>
-                               <asp:TextBox runat="server" ID="txtreceiver"></asp:TextBox>
-                           </asp:TableCell>
-                       </asp:TableRow>
-                       <asp:TableRow>
-                           <asp:TableCell>
+                  	<table class="table table-dark table-striped table-hover table-sm" runat="server">
+                       <tr runat="server">
+                           <td runat="server">
+                               Enter E-Mail Address 
+							</td>
+                           <td runat="server">
+                               <asp:TextBox runat="server" class="form-control" placeholder="Enter Receiver Mail Address" ID="txtreceiver" required="true"></asp:TextBox>                          
+							</td>
+					   </tr>
+                       <tr runat="server">
+                           <td runat="server">
                                Enter Subject
-                           </asp:TableCell>
-                           <asp:TableCell>
-                               <asp:TextBox runat="server" ID="txtSubject"></asp:TextBox>
-                           </asp:TableCell>
-                       </asp:TableRow>
-                       <asp:TableRow>
-                           <asp:TableCell>
-                               Enter Message
-                           </asp:TableCell>
-                           <asp:TableCell>
-                               <asp:TextBox runat="server" ID="txtMsg" Rows="5"></asp:TextBox>
-                           </asp:TableCell>
-                       </asp:TableRow>
-                       <asp:TableRow>
-                           <asp:TableCell ColumnSpan="2">
-                               <asp:Button ID="btnSend" runat="server" Text="Send" />
-                           </asp:TableCell>
-                       </asp:TableRow>
-                   </asp:Table>
+						   </td>
+							<td runat="server">
+                               <asp:TextBox runat="server" class="form-control" placeholder="Enter Subject" ID="txtSubject"></asp:TextBox>                           
+							</td>
+					   </tr>
+					   <tr runat="server">
+                           <td runat="server">
+                               Enter Message 
+							</td>								   
+                           <td runat="server">
+                               <asp:TextBox runat="server" ID="txtMsg" placeholder="Enter Mail Content" class="form-control" Rows="5"></asp:TextBox>                           
+							</td>
+					   </tr>
+					   <tr runat="server">
+                           <td colspan="2" runat="server">
+                               <asp:Button ID="btnSend" class="form-control btn btn-primary" name="btnSendMail" runat="server" Text="Send" OnClick="btnSend_Click" />                         
+							</td>
+                        </tr>
+				   </table>
                 </div>
                 <div id="inbox" runat="server">
                      <h1>INBOX</h1>
